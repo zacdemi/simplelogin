@@ -5,10 +5,8 @@ client = MongoClient()
 db = client.bread
 collection = db.customers
 
-
 def adduser(newuser):
     collection.insert(newuser)
-
 
 def verifylogin(email,password):
     user = collection.find_one({"email":email})
