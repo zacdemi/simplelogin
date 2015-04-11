@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+    <head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    </head>
+
+<link rel="stylesheet" href="{{ url_for('static',filename='register.css')}}"/>
+<body>
+
+
+<div id="page-wrap">
+<h1> WELCOME  </h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<br><br>
+
+<form method="POST" action="{{url_for('home')}}">
+     {{ form.hidden_tag() }}
+     {{ form.email.label }}:<br>
+     {{ form.email(size=20) }} <br><br>
+     {{ form.password.label }}:<br>
+     {{ form.password(size=20) }}<br><br>
+    <input type="submit" name="action" value="Login" width="140" >
+    <input type="submit" name="action" value="Register" width="140" >
+    
+    
+</form>
+
+</div>
+</body>
+
+
